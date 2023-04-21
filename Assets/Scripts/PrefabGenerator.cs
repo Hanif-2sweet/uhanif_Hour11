@@ -5,11 +5,27 @@ using UnityEngine;
 public class PrefabGenerator : MonoBehaviour
 {
     public GameObject prefab;
+    public Transform spawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        CreatePrefab(10);
+    }
+    void CreatePrefab(int dist)
+    {
+            for (int i = 1; i < dist ; i++)
+        {
+           
+            Instantiate(prefab, new Vector3 (spawnPoint.transform.position.x, spawnPoint.transform.position.y, i*3f), Quaternion.Euler(90.0f ,90.0f, 0f));
+            
+
+           //  Vector3 spawnpositon = new Vector3(spawnValues.x, 1f, spawnValues.z + 5);
+           //new Vector3 (spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z + 1f)
         
+         }
+
     }
 
     // Update is called once per frame
